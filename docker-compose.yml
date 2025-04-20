@@ -12,5 +12,17 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  auth-service:
+    build: ./auth-service
+    ports:
+      - "5001:8000"
+    environment:
+      DATABASE_URL: "postgresql://tree:papa@db:5438/mydatabase"  # Подключение к БД внутри Docker
+      SECRET_KEY: "pBUgw40GXBWiWsbtbQajxyy-xtAQyFd-c4G3RJBj0Dw" # Секретный ключ JWT
+    depends_on:
+      - db
+    networks:
+      - default
+
 volumes:
   postgres_data:
