@@ -1,0 +1,16 @@
+services:
+
+  db:
+    image: postgres:latest
+    container_name: my_postgres_db
+    environment:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: tree
+      POSTGRES_PASSWORD: papa
+    ports:
+      - "5438:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
