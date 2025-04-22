@@ -1,3 +1,6 @@
+secrets:
+    my_jwt_secret:
+      file: ./my_jwt_secret.txt
 services:
 
   db:
