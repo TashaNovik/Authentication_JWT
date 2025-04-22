@@ -1,4 +1,5 @@
 import os
+import re
 from datetime import datetime, timedelta
 
 from fastapi import Depends, FastAPI, HTTPException, status
@@ -57,9 +58,13 @@ async def get_current_user(token: str = Depends(oauth2_scheme), db: Session = De
         raise credentials_exception
     return user
 
+email_regex = re.compile(r"[^@]+@[^@]+\.[^@]+")
+
 
 @app.post("/register", status_code=status.HTTP_201_CREATED)
 async def register(user_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depends(get_db)):
+    if not email_regex.match(user_data.username):
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid email format")
     if len(user_data.password) < 6:
         raise HTTPException(status_code=400, detail="Password too short")
     existing_user = db.query(User).filter(User.email == user_data.username).first()

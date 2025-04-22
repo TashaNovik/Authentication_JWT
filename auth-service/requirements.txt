@@ -5,3 +5,5 @@ psycopg2-binary
 passlib[bcrypt]
 python-dotenv
 pyjwt
+python-jose
+python-multipart

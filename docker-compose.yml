@@ -17,7 +17,7 @@ services:
     ports:
       - "5001:8000"
     environment:
-      DATABASE_URL: "postgresql://tree:papa@db:5438/mydatabase"  # Подключение к БД внутри Docker
+      DATABASE_URL: "postgresql://tree:papa@db:5432/mydatabase"  # Подключение к БД внутри Docker
       SECRET_KEY: "pBUgw40GXBWiWsbtbQajxyy-xtAQyFd-c4G3RJBj0Dw" # Секретный ключ JWT
     depends_on:
       - db
