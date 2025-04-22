@@ -55,3 +55,23 @@ main.py (основной файл приложения)
 models.py (модели базы данных)
 Dockerfile
 requirements.txt
+
+Создать и установить зависимости из requirements.txt:
+pip install -r requirements.txt
+
+Создать модели базы данных(models.py);
+
+Реализация основного приложения (main.py);
+
+Создание Docker-образа (Dockerfile);
+
+Запуск сервиса: docker-compose up --build post-service
+
+
+[//]: # ({)
+
+[//]: # (    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlN0ByZXhhbXBsZS5jb20iLCJleHAiOjE3NDUzMzI1ODZ9.L-VvrCXamPwxHg5_e1uYcNlrRkSXyYONTXwi-MwtykQ",)
+
+[//]: # (    "token_type": "bearer")
+
+[//]: # (})

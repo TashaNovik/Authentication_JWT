@@ -24,5 +24,17 @@ services:
     networks:
       - default
 
+  post-service:
+    build: ./post-service
+    ports:
+      - "5002:8000"
+    environment:
+      DATABASE_URL: "postgresql://tree:papa@db:5432/mydatabase"  #  Та же БД
+      SECRET_KEY: "pBUgw40GXBWiWsbtbQajxyy-xtAQyFd-c4G3RJBj0Dw" #  Тот же секретный ключ!  todo: Docker Secrets в production
+    depends_on:
+      - db
+    networks:
+      - default
+
 volumes:
   postgres_data:
