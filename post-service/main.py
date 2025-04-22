@@ -13,7 +13,12 @@ DATABASE_URL = os.environ.get("DATABASE_URL")
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY_FILE = os.environ.get("SECRET_KEY_FILE")
+if SECRET_KEY_FILE:
+    with open(SECRET_KEY_FILE, "r") as f:
+        SECRET_KEY = f.read().strip()
+else:
+    raise ValueError("Secret key file not found.")
 ALGORITHM = "HS256"
 
 
