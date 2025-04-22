@@ -45,3 +45,13 @@ pip install -r requirements.txt
 Создание Docker-образа (Dockerfile);
 
 Запуск сервиса: docker-compose up --build auth-service
+
+3. Разработка сервиса для публикации постов (Post Service):
+mkdir post-service
+cd post-service
+
+Внутри post-service создать файлы:
+main.py (основной файл приложения)
+models.py (модели базы данных)
+Dockerfile
+requirements.txt
