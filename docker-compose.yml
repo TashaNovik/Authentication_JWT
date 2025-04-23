@@ -1,6 +1,6 @@
 secrets:
     my_jwt_secret:
-      file: ./my_jwt_secret.txt
+      file: ./my_jwt_secret.key
 services:
 
   db:

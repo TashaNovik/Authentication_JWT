@@ -65,13 +65,9 @@ pip install -r requirements.txt
 
 Создание Docker-образа (Dockerfile);
 
-Запуск сервиса: docker-compose up --build post-service
+Запуск сервиса:     
+     Если секретный ключ для генерации JWT токена еще не сгенерирован генерируем при помощи файла secretKeyGeneraion.py     
+     Запускаем контейнеры сервисов авторизации/аутентификации и публикации постов: docker-compose up --build post-service
 
 
-[//]: # ({)
 
-[//]: # (    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJ0ZXN0dXNlN0ByZXhhbXBsZS5jb20iLCJleHAiOjE3NDUzMzI1ODZ9.L-VvrCXamPwxHg5_e1uYcNlrRkSXyYONTXwi-MwtykQ",)
-
-[//]: # (    "token_type": "bearer")
-
-[//]: # (})
