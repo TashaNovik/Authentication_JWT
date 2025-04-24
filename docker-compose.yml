@@ -5,9 +5,8 @@ services:
 
   db:
     image: postgres:latest
-    container_name: my_postgres_db
+    container_name: postgres
     environment:
-      POSTGRES_DB: mydatabase
       POSTGRES_USER: tree
       POSTGRES_PASSWORD: papa
     ports:
@@ -22,7 +21,7 @@ services:
     secrets:
       - my_jwt_secret
     environment:
-      DATABASE_URL: "postgresql://tree:papa@db:5432/mydatabase"  # Подключение к БД внутри Docker
+      DATABASE_URL: "postgresql://tree:papa@db:5432/auth"
       SECRET_KEY_FILE: /run/secrets/my_jwt_secret
     depends_on:
       - db
@@ -36,7 +35,7 @@ services:
     secrets:
       - my_jwt_secret
     environment:
-      DATABASE_URL: "postgresql://tree:papa@db:5432/mydatabase"  #  Та же БД
+      DATABASE_URL: "postgresql://tree:papa@db:5432/post"
       SECRET_KEY_FILE: /run/secrets/my_jwt_secret
     depends_on:
       - db
