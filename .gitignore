@@ -1,2 +1,3 @@
 my_jwt_secret.key
 __pycache__
+*~

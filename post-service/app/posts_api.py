@@ -15,4 +15,5 @@ async def create_post(post_data: PostMessage, user_id: int = Depends(get_current
     new_message = Message(user_id=user_id, message=post_data.message)
     db.add(new_message)
     db.commit()
+    logger.info("Message created")
     return Response(status_code=status.HTTP_201_CREATED)
